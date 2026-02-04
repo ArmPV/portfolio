@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armand PLUVINET-VIAENE | Portfolio</title>
+    
+    <!-- Preload = dit au navigateur de charger l'image en priorité -->
+    <link rel="preload" href="vio.png" as="image">
+    
+    <!-- Police Google Fonts - Poppins avec plusieurs graisses (300 à 700) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes (fa-download, fa-envelope, etc.) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Mon fichier CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">APV</div>
+            <ul class="nav-links">
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#experience">Expériences</a></li>
+                <li><a href="#education">Formation</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========== SECTION ACCUEIL ========== -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Armand PLUVINET-VIAENE</h1>
+            <p class="subtitle">Développeur Web & Étudiant en Informatique</p>
+            <div class="hero-buttons">
+                <!-- download = force le téléchargement au lieu d'ouvrir le PDF -->
+                <a href="../cv2026.pdf" class="btn btn-primary" download>
+                    <i class="fas fa-download"></i> Télécharger mon CV
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Me contacter
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== À PROPOS ========== -->
+    <section id="about">
+        <h2 class="section-title">À propos de moi</h2>
+        <div class="about-grid">
+            <div class="about-image">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="about-text">
+                <p>
+                    Passionné par le développement web et les nouvelles technologies, je suis actuellement 
+                    en formation pour devenir développeur. Mon objectif est de créer des solutions 
+                    numériques innovantes et performantes.
+                </p>
+                <p>
+                    Curieux et autodidacte, j'aime relever de nouveaux défis techniques et apprendre 
+                    continuellement de nouvelles compétences pour rester à la pointe de mon domaine.
+                </p>
+                <p>
+                    Je recherche activement des opportunités pour mettre en pratique mes compétences 
+                    et contribuer à des projets ambitieux.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== COMPÉTENCES ========== -->
+    <section id="skills">
+        <h2 class="section-title">Compétences</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Développement Front-end</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Vue.js</span>
+                    <span class="skill-tag">Responsive Design</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-server"></i> Développement Back-end</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">API REST</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-tools"></i> Outils & Méthodes</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Agile</span>
+                    <span class="skill-tag">Linux</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-lightbulb"></i> Soft Skills</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">Travail d'équipe</span>
+                    <span class="skill-tag">Autonomie</span>
+                    <span class="skill-tag">Curiosité</span>
+                    <span class="skill-tag">Adaptabilité</span>
+                    <span class="skill-tag">Communication</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EXPÉRIENCES ========== -->
+    <section id="experience">
+        <h2 class="section-title">Expériences</h2>
+        <div class="experiences">
+            <div class="experience-card">
+                <div class="experience-date">2024 - Présent</div>
+                <h3 class="experience-title">Projets personnels & Formation</h3>
+                <p class="experience-lieu">Développement web</p>
+                <p>Réalisation de projets personnels pour consolider mes compétences en développement web. 
+                   Création de sites web, applications et exploration de nouvelles technologies.</p>
+            </div>
+            <div class="experience-card">
+                <div class="experience-date">2023 - 2024</div>
+                <h3 class="experience-title">Stage / Projet académique</h3>
+                <p class="experience-lieu">Formation en développement</p>
+                <p>Participation à des projets en équipe, développement d'applications web, 
+                   apprentissage des bonnes pratiques de développement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FORMATION ========== -->
+    <section id="education">
+        <h2 class="section-title">Formation</h2>
+        <div class="formation-card">
+            <h3>Formation Développeur Web</h3>
+            <p class="date">2024 - 2026</p>
+            <p class="ecole">En cours de formation</p>
+            <p>Apprentissage des technologies web modernes, développement front-end et back-end, 
+               gestion de projets et travail en équipe.</p>
+        </div>
+        <div class="formation-card">
+            <h3>Baccalauréat</h3>
+            <p class="date">2023</p>
+            <p class="ecole">Obtention du diplôme</p>
+            <p>Formation générale avec spécialisation dans les domaines techniques et scientifiques.</p>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact">
+        <div class="contact-box">
+            <h2 class="section-title">Me contacter</h2>
+            <p>N'hésitez pas à me contacter pour discuter de vos projets ou opportunités !</p>
+            <div class="contact-links">
+                <a href="mailto:contact@example.com" class="contact-link">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <!-- target="_blank" = ouvre dans un nouvel onglet -->
+                <a href="https://linkedin.com" target="_blank" class="contact-link">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com" target="_blank" class="contact-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="../cv2026.pdf" class="contact-link" download>
+                    <i class="fas fa-file-pdf"></i> CV PDF
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <p>&copy; <span id="annee"></span> Armand PLUVINET-VIAENE. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Mon fichier JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

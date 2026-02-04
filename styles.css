@@ -1,0 +1,570 @@
+/* ========================================
+   PORTFOLIO - Armand PLUVINET-VIAENE
+   Feuille de style principale
+   ======================================== */
+
+
+/* ----------------------------------------
+   VARIABLES CSS
+   Permet de réutiliser les mêmes couleurs partout
+   Pour changer une couleur, suffit de la modifier ici
+   ---------------------------------------- */
+:root {
+    --violet-principal: #840077;
+    --violet-clair: #c44dbb;
+    --violet-fonce: #5b0053;
+    --fond-sombre: #1a0a1f;
+    --rose: #e879f9;
+    --texte: #ffffff;
+    --texte-clair: #e8d5eb;
+    --blanc: #ffffff;
+    
+    /* linear-gradient = dégradé entre 2 couleurs
+       135deg = angle du dégradé (diagonal) */
+    --degrade: linear-gradient(135deg, var(--violet-principal) 0%, var(--rose) 100%);
+}
+
+
+/* ----------------------------------------
+   RESET CSS
+   Enlève les marges par défaut des navigateurs
+   ---------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* padding inclus dans la largeur */
+}
+
+html {
+    scroll-behavior: smooth; /* scroll fluide quand on clique sur les liens */
+}
+
+
+/* ----------------------------------------
+   BODY - Style général de la page
+   ---------------------------------------- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #840077; /* couleur de fallback si l'image charge pas */
+    background-image: url(./vio.png);
+    background-size: cover; /* l'image couvre tout l'écran */
+    background-attachment: fixed; /* l'image reste fixe quand on scrolle */
+    
+    /* Animation du fond - voir @keyframes backgroundMove plus bas */
+    animation: backgroundMove 20s ease-in-out infinite alternate;
+    
+    color: var(--texte);
+    line-height: 1.6; /* espacement entre les lignes */
+    min-height: 100vh; /* au minimum la hauteur de l'écran */
+}
+
+/* Animation du fond qui bouge légèrement */
+@keyframes backgroundMove {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+
+/* ----------------------------------------
+   NAVIGATION
+   Barre de navigation fixe en haut
+   ---------------------------------------- */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    
+    /* rgba = couleur avec transparence (0.95 = 95% opaque) */
+    background: rgba(26, 10, 31, 0.95);
+    
+    /* backdrop-filter = effet de flou sur ce qu'il y a derrière */
+    backdrop-filter: blur(15px);
+    
+    z-index: 1000; /* au dessus de tout le reste */
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(132, 0, 119, 0.5);
+    box-shadow: 0 4px 30px rgba(132, 0, 119, 0.3);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto; /* centre le container */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    
+    /* Texte avec dégradé - un peu complexe mais stylé */
+    background: var(--degrade);
+    -webkit-background-clip: text; /* pour Safari/Chrome */
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none; /* enlève les puces */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--texte);
+    font-weight: 500;
+    transition: all 0.3s; /* animation fluide au hover */
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+.nav-links a:hover {
+    color: var(--violet-clair);
+    background: rgba(132, 0, 119, 0.2);
+}
+
+
+/* ----------------------------------------
+   SECTION HERO (accueil)
+   La première section qu'on voit
+   ---------------------------------------- */
+.hero {
+    min-height: 100vh; /* prend toute la hauteur de l'écran */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem 2rem; /* 6rem en haut pour la navbar */
+    position: relative;
+    overflow: hidden;
+    background: transparent; /* on laisse voir le fond du body */
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--blanc);
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    
+    /* Animation d'apparition - voir @keyframes fadeInUp */
+    animation: fadeInUp 1s ease;
+    
+    /* Ombre portée sur le texte pour le faire ressortir */
+    text-shadow: 0 0 30px rgba(132, 0, 119, 0.8);
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    
+    /* backwards = garde l'état initial pendant le délai */
+    animation: fadeInUp 1s ease 0.2s backwards;
+    
+    color: var(--texte-clair);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    animation: fadeInUp 1s ease 0.4s backwards;
+}
+
+
+/* ----------------------------------------
+   BOUTONS
+   ---------------------------------------- */
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 50px; /* boutons arrondis */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; /* espace entre icône et texte */
+}
+
+/* Bouton principal (télécharger CV) */
+.btn-primary {
+    background: var(--degrade);
+    color: var(--blanc);
+    border: none;
+    box-shadow: 0 5px 25px rgba(132, 0, 119, 0.5);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px); /* monte légèrement */
+    box-shadow: 0 10px 40px rgba(132, 0, 119, 0.7);
+}
+
+/* Bouton secondaire (me contacter) */
+.btn-secondary {
+    border: 2px solid var(--rose);
+    color: var(--blanc);
+    background: rgba(232, 121, 249, 0.2);
+    box-shadow: 0 0 20px rgba(232, 121, 249, 0.4);
+}
+
+.btn-secondary:hover {
+    background: var(--rose);
+    border-color: var(--rose);
+    box-shadow: 0 5px 30px rgba(232, 121, 249, 0.6);
+    transform: translateY(-3px);
+}
+
+
+/* ----------------------------------------
+   SECTIONS - Style commun
+   ---------------------------------------- */
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    color: var(--blanc);
+}
+
+/* Petite barre sous le titre */
+.section-title::after {
+    content: ''; /* pseudo-élément vide */
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%); /* centre horizontalement */
+    width: 60px;
+    height: 4px;
+    background: var(--degrade);
+    border-radius: 2px;
+}
+
+
+/* ----------------------------------------
+   À PROPOS
+   ---------------------------------------- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 1/3 image, 2/3 texte */
+    gap: 3rem;
+    align-items: center;
+    
+    /* Style carte */
+    background: rgba(26, 10, 31, 0.85);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(132, 0, 119, 0.5);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.about-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* cercle */
+    background: var(--degrade);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: var(--blanc);
+    margin: 0 auto;
+    box-shadow: 0 0 50px rgba(132, 0, 119, 0.6);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+    color: var(--texte-clair);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+
+/* ----------------------------------------
+   COMPÉTENCES
+   ---------------------------------------- */
+.skills-grid {
+    display: grid;
+    
+    /* auto-fit + minmax = grille responsive automatique
+       Les colonnes font minimum 280px, s'adaptent sinon */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category {
+    background: rgba(26, 10, 31, 0.85);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(132, 0, 119, 0.5);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    border-color: var(--violet-principal);
+    box-shadow: 0 10px 40px rgba(132, 0, 119, 0.3);
+}
+
+.skill-category h3 {
+    color: var(--violet-clair);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap; /* les tags passent à la ligne si besoin */
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background: rgba(132, 0, 119, 0.4);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--blanc);
+    border: 1px solid rgba(196, 77, 187, 0.5);
+    transition: all 0.3s;
+}
+
+.skill-tag:hover {
+    background: var(--violet-principal);
+    color: var(--blanc);
+    border-color: var(--violet-principal);
+}
+
+
+/* ----------------------------------------
+   EXPÉRIENCES
+   ---------------------------------------- */
+.experiences {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.experience-card {
+    background: rgba(26, 10, 31, 0.85);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(132, 0, 119, 0.5);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.experience-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(132, 0, 119, 0.4);
+    border-color: var(--violet-clair);
+}
+
+.experience-date {
+    color: var(--rose);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.experience-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--blanc);
+}
+
+.experience-lieu {
+    color: var(--violet-clair);
+    font-style: italic;
+    margin-bottom: 0.75rem;
+}
+
+.experience-card p:last-child {
+    color: var(--texte-clair);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ----------------------------------------
+   FORMATION
+   ---------------------------------------- */
+.formation-card {
+    background: rgba(26, 10, 31, 0.85);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(132, 0, 119, 0.5);
+    backdrop-filter: blur(10px);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.formation-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(132, 0, 119, 0.4);
+    border-color: var(--violet-clair);
+}
+
+.formation-card h3 {
+    color: var(--blanc);
+    margin-bottom: 0.5rem;
+}
+
+.formation-card .date {
+    color: var(--rose);
+    font-weight: 600;
+}
+
+.formation-card .ecole {
+    color: var(--violet-clair);
+}
+
+.formation-card p:last-child {
+    color: var(--texte-clair);
+    margin-top: 0.5rem;
+}
+
+
+/* ----------------------------------------
+   CONTACT
+   ---------------------------------------- */
+.contact-box {
+    background: rgba(26, 10, 31, 0.9);
+    border: 1px solid rgba(132, 0, 119, 0.5);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    padding: 4rem;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.contact-box .section-title {
+    color: var(--blanc);
+}
+
+.contact-box > p {
+    color: var(--texte-clair);
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--blanc);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    background: rgba(132, 0, 119, 0.5);
+    border: 1px solid rgba(196, 77, 187, 0.6);
+    border-radius: 50px;
+    transition: all 0.3s;
+    box-shadow: 0 3px 15px rgba(132, 0, 119, 0.3);
+}
+
+.contact-link:hover {
+    background: var(--violet-principal);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(132, 0, 119, 0.5);
+}
+
+
+/* ----------------------------------------
+   FOOTER
+   ---------------------------------------- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--texte-clair);
+    border-top: 1px solid rgba(132, 0, 119, 0.2);
+}
+
+
+/* ----------------------------------------
+   ANIMATIONS
+   @keyframes = définit les étapes d'une animation
+   ---------------------------------------- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* part du bas */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* arrive à sa position normale */
+    }
+}
+
+
+/* ----------------------------------------
+   RESPONSIVE - Adaptation mobile
+   @media = applique ces styles seulement si l'écran < 768px
+   ---------------------------------------- */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr; /* une seule colonne */
+        text-align: center;
+    }
+
+    .nav-links {
+        display: none; /* cache le menu sur mobile */
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .contact-box {
+        padding: 2rem;
+    }
+
+    .contact-links {
+        gap: 1rem;
+    }
+
+    .contact-link {
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* Bouton menu burger (pas encore fonctionnel) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--blanc);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+}
