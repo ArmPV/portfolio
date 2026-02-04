@@ -354,50 +354,47 @@ section {
 /* ----------------------------------------
    EXPÉRIENCES
    ---------------------------------------- */
-.experiences {
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* maximum 2 colonnes côte à côte */
+    gap: 2rem;
+}
+
+/* chaque projet est une card réutilisant le style des skill-category */
+.project-card {
+    padding: 1.5rem;
+}
+
+.experience-item {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
+    align-items: flex-start;
 }
 
-.experience-card {
-    background: rgba(26, 10, 31, 0.85);
-    padding: 2rem;
-    border-radius: 20px;
-    border: 1px solid rgba(132, 0, 119, 0.5);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+.experience-img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgba(196, 77, 187, 0.4);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
-.experience-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(132, 0, 119, 0.4);
-    border-color: var(--violet-clair);
+.experience-text h4 {
+    margin: 0.15rem 0 0.5rem 0;
+    color: var(--blanc);
+}
+
+.experience-text p {
+    margin: 0;
+    color: var(--texte-clair);
 }
 
 .experience-date {
     color: var(--rose);
     font-weight: 600;
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-}
-
-.experience-title {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: var(--blanc);
-}
-
-.experience-lieu {
-    color: var(--violet-clair);
-    font-style: italic;
-    margin-bottom: 0.75rem;
-}
-
-.experience-card p:last-child {
-    color: var(--texte-clair);
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
 }
 
 
@@ -550,6 +547,11 @@ footer {
 
     .contact-link {
         padding: 0.8rem 1.5rem;
+    }
+
+    /* Adaptation mobile pour la grille projets : une colonne */
+    #projects-grid, .projects-grid {
+        grid-template-columns: 1fr;
     }
 }
 
