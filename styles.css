@@ -18,10 +18,13 @@
     --texte: #ffffff;
     --texte-clair: #e8d5eb;
     --blanc: #ffffff;
-    
-    /* linear-gradient = dégradé entre 2 couleurs
-       135deg = angle du dégradé (diagonal) */
     --degrade: linear-gradient(135deg, var(--violet-principal) 0%, var(--rose) 100%);
+    
+    /* Couleurs réutilisables avec transparence */
+    --card-bg: rgba(26, 10, 31, 0.85);
+    --card-border: rgba(132, 0, 119, 0.5);
+    --card-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    --card-radius: 20px;
 }
 
 
@@ -45,17 +48,16 @@ html {
    ---------------------------------------- */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #840077; /* couleur de fallback si l'image charge pas */
+    background-color: var(--violet-principal);
     background-image: url(./vio.png);
-    background-size: cover; /* l'image couvre tout l'écran */
-    background-attachment: fixed; /* l'image reste fixe quand on scrolle */
-    
-    /* Animation du fond - voir @keyframes backgroundMove plus bas */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     animation: backgroundMove 20s ease-in-out infinite alternate;
-    
     color: var(--texte);
-    line-height: 1.6; /* espacement entre les lignes */
-    min-height: 100vh; /* au minimum la hauteur de l'écran */
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
 /* Animation du fond qui bouge légèrement */
@@ -254,19 +256,28 @@ section {
 /* ----------------------------------------
    À PROPOS
    ---------------------------------------- */
+/* Classe commune pour toutes les cartes */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--card-radius);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(132, 0, 119, 0.4);
+    border-color: var(--violet-clair);
+}
+
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* 1/3 image, 2/3 texte */
+    grid-template-columns: 1fr 2fr;
     gap: 3rem;
     align-items: center;
-    
-    /* Style carte */
-    background: rgba(26, 10, 31, 0.85);
     padding: 2.5rem;
-    border-radius: 20px;
-    border: 1px solid rgba(132, 0, 119, 0.5);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
 .about-image {
@@ -314,19 +325,19 @@ section {
 }
 
 .skill-category {
-    background: rgba(26, 10, 31, 0.85);
+    background: var(--card-bg);
     padding: 2rem;
-    border-radius: 20px;
-    border: 1px solid rgba(132, 0, 119, 0.5);
+    border-radius: var(--card-radius);
+    border: 1px solid var(--card-border);
     backdrop-filter: blur(10px);
+    box-shadow: var(--card-shadow);
     transition: all 0.3s;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
 .skill-category:hover {
     transform: translateY(-5px);
-    border-color: var(--violet-principal);
     box-shadow: 0 10px 40px rgba(132, 0, 119, 0.3);
+    border-color: var(--violet-clair);
 }
 
 .skill-category h3 {
@@ -411,14 +422,14 @@ section {
    FORMATION
    ---------------------------------------- */
 .formation-card {
-    background: rgba(26, 10, 31, 0.85);
+    background: var(--card-bg);
     padding: 2rem;
-    border-radius: 20px;
-    border: 1px solid rgba(132, 0, 119, 0.5);
+    border-radius: var(--card-radius);
+    border: 1px solid var(--card-border);
     backdrop-filter: blur(10px);
     margin-bottom: 1.5rem;
+    box-shadow: var(--card-shadow);
     transition: all 0.3s;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
 .formation-card:hover {
@@ -451,8 +462,8 @@ section {
    CONTACT
    ---------------------------------------- */
 .contact-box {
-    background: rgba(26, 10, 31, 0.9);
-    border: 1px solid rgba(132, 0, 119, 0.5);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     backdrop-filter: blur(15px);
     border-radius: 30px;
     padding: 4rem;
@@ -529,28 +540,45 @@ footer {
    @media = applique ces styles seulement si l'écran < 768px
    ---------------------------------------- */
 @media (max-width: 768px) {
-    /* Désactiver l'image de fond sur mobile pour un chargement plus rapide */
+    /* Fond fixe sur mobile */
     body {
         background-image: none;
-        background: linear-gradient(135deg, #840077 0%, #5b0053 50%, #1a0a1f 100%);
+        background: linear-gradient(180deg, #840077 0%, #5b0053 40%, #1a0a1f 100%);
+        background-attachment: fixed;
+        min-height: 100%;
         animation: none;
     }
 
+    /* Réduire le padding des sections sur mobile */
+    section {
+        padding: 3rem 1rem;
+    }
+
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
     }
 
     .about-grid {
-        grid-template-columns: 1fr; /* une seule colonne */
+        grid-template-columns: 1fr;
         text-align: center;
+        padding: 1.5rem;
     }
 
-    .skill-list {
-        justify-content: center; /* centre les tags sur mobile */
+    .about-image {
+        width: 180px;
+        height: 180px;
     }
 
     .nav-links {
-        display: none; /* cache le menu sur mobile */
+        display: none;
     }
 
     .hero-buttons {
@@ -558,24 +586,35 @@ footer {
         align-items: center;
     }
 
-    .contact-box {
-        padding: 2rem;
-    }
-
-    .contact-links {
+    /* Grilles en une colonne */
+    .skills-grid,
+    #projects-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
 
-    .contact-link {
-        padding: 0.8rem 1.5rem;
+    .skill-category {
+        padding: 1.5rem;
     }
 
-    /* Adaptation mobile pour la grille projets : une colonne */
-    #projects-grid, .projects-grid {
-        grid-template-columns: 1fr;
+    .skill-category h3 {
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+        font-size: 1rem;
     }
 
-    /* Centrer les projets sur mobile */
+    .skill-list {
+        justify-content: center;
+    }
+
+    .skill-tag {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    /* Projets */
     .experience-item {
         flex-direction: column;
         align-items: center;
@@ -584,12 +623,26 @@ footer {
 
     .project-card {
         max-width: 100%;
-        overflow: hidden;
+        padding: 1.5rem;
     }
 
-    .skill-category h3 {
-        justify-content: center;
-        text-align: center;
+    /* Formation */
+    .formation-card {
+        padding: 1.5rem;
+    }
+
+    /* Contact */
+    .contact-box {
+        padding: 2rem 1.5rem;
+    }
+
+    .contact-links {
+        gap: 0.8rem;
+    }
+
+    .contact-link {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
     }
 }
 
