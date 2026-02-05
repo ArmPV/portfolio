@@ -545,6 +545,10 @@ footer {
         text-align: center;
     }
 
+    .skill-list {
+        justify-content: center; /* centre les tags sur mobile */
+    }
+
     .nav-links {
         display: none; /* cache le menu sur mobile */
     }
