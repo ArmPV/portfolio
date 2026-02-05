@@ -529,6 +529,13 @@ footer {
    @media = applique ces styles seulement si l'écran < 768px
    ---------------------------------------- */
 @media (max-width: 768px) {
+    /* Désactiver l'image de fond sur mobile pour un chargement plus rapide */
+    body {
+        background-image: none;
+        background: linear-gradient(135deg, #840077 0%, #5b0053 50%, #1a0a1f 100%);
+        animation: none;
+    }
+
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -562,6 +569,23 @@ footer {
     /* Adaptation mobile pour la grille projets : une colonne */
     #projects-grid, .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Centrer les projets sur mobile */
+    .experience-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .project-card {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .skill-category h3 {
+        justify-content: center;
+        text-align: center;
     }
 }
 
